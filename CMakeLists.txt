@@ -3,11 +3,20 @@ project(json_parser)
 
 set(CMAKE_CXX_STANDARD 23)
 
-set(TEST_MAIN test)
+include_directories(./include)
 
-add_executable(${PROJECT_NAME} main.cpp)
+set(SRCS
+        src/main.cpp
+)
+set(HEADERS
+        include/JsonParser.hpp
+)
 
-add_executable(${TEST_MAIN} ./test/test_main.cpp)
+
+add_executable(${PROJECT_NAME} ${SRCS} ${HEADERS})
+
+add_executable(Test
+        test/main.cpp)
 
 find_package(GTest CONFIG REQUIRED)
-target_link_libraries(${TEST_MAIN} PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main)
+target_link_libraries(Test PRIVATE GTest::gtest GTest::gtest_main)
