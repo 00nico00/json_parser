@@ -18,6 +18,10 @@ struct json_value {
     }
 };
 
+struct json_context {
+    
+};
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
